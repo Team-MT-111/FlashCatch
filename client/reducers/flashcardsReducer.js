@@ -6,14 +6,18 @@
 import * as types from '../constants/actionTypes.js';
 
 const intialState = {
-  question: '',
+  question: 'Flash Card',
   answer: ''
 };
 
 const flashcardsReducer = (state = intialState, action) => {
   switch (action.type){
     case types.ADD_FLASHCARD: {
-      
+      return {
+        ...state,
+        question: action.payload,
+        answer: action.payload 
+      }
     }  
     default: {
       return state
