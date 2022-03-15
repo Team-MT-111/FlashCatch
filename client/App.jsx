@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 
 function App() {
   return (
@@ -11,9 +11,12 @@ function App() {
           paddingBottom: "1rem",
         }}
       >
-        <Link to="/components/flashcards">Flashcards</Link> |{" "}
-        <Link to="/components/pokedex">Pokedex</Link>
+        <Link to="flashcards">Flashcards</Link> |{" "}
+        <Link to="pokedex">Pokedex</Link> |{" "}
+        <Link to="logIn">logIn</Link> |{" "}
+        <Link to="signUp">signUp</Link>
       </nav>
+      <Outlet />
     </div>
   )
 }
