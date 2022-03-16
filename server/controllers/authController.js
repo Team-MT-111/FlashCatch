@@ -68,4 +68,8 @@ auth.login = async (req, res, next) => {
   }
 };
 
+auth.logout = (req, res, next) => {
+
+};
+
 module.exports = auth;

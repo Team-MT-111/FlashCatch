@@ -13,7 +13,8 @@ const teamSchema = new mongoose.Schema({
   pokemons: [{
     name: String,
     id: Number,
-    picture: String
+    picture: String,
+    _id: false
   }]
 })
 
