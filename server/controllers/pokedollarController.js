@@ -2,7 +2,7 @@ const pokedollar = {};
 const pool = require('../models/userModel.js');
 
 pokedollar.add = async (req, res, next) => {
-  const { id } = req.body;
+  const { id } = req.cookies;
   let pokedollars = Number(req.body.pokedollars);
   pokedollars++;
   const queryString =
@@ -22,7 +22,7 @@ pokedollar.add = async (req, res, next) => {
 };
 
 pokedollar.subtract = async (req, res, next) => {
-  const { id } = req.body;
+  const { id } = req.cookies;
   let pokedollars = Number(req.body.pokedollars);
   pokedollars -= 5;
   const queryString =

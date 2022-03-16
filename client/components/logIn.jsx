@@ -1,8 +1,11 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import SignUp from './signUp';
 import { connect } from 'react-redux';
 import { fetchUserLogin } from '../reducers/userReducer';
+import { Button, TextField, Typography, } from '@mui/material'
+
+import '../styles/logIn.scss';
 
 const mapDispatchToProps = dispatch => ({
     verifyUser: (loginInfo, navigate) => {
@@ -13,11 +16,16 @@ const mapDispatchToProps = dispatch => ({
 
 function LogIn(props) {
 const navigate = useNavigate();
+const [username, setUsername] = useState('');
+const [password, setPassword] = useState('');
+
+
+
+
 const handleClick = (e) => {
     e.preventDefault()
-
-    const username = document.querySelector('input[name="logInUsername"]').value;
-    const password = document.querySelector('input[name="logInPassword"]').value;
+    
+    console.log("inputs", username, password)
     const loginInfo = {
         username: username,
         password: password
@@ -28,20 +36,50 @@ const handleClick = (e) => {
 }
 
     return (
-    <div>
-        <h2>This is the log in page</h2>
-        <div>
-            <p>Username</p>
-            <input type="text" name='logInUsername' placeholder='Input Username'></input>
-            <p>Password</p>
-            <input type="password" name='logInPassword' placeholder='Input Password'></input>
-            <button id='loginButton' onClick={handleClick}>Log in</button>
-            <p>Don't have an account? Sign up <Link to="../signUp">here</Link></p>
-            
-        </div>
+    <div id="logIn">
+    <Typography variant="h2">
+      Login to Contiue the Quest to Catch Them All
+    </Typography>
+      <div id="inputs">
+        <TextField 
+          required 
+          className="Inputfield"
+          id="outlilned-basic" 
+          label="Username" 
+          variant="outlined"
+          onChange={(e) => setUsername(e.target.value)}
+          sx={{ m: 0.5 }}
+        >
+        </TextField>
+        <TextField 
+          required 
+          className="Inputfield"
+          id="outlilned-basic" 
+          label ="Password" 
+          variant="outlined"
+          onChange={(e) => setPassword(e.target.value)}
+          sx={{ m: 0.5 }}
+        >
+        </TextField>
+        <Button
+          id="logInBtn"
+          variant="contained" 
+          size="medium"
+          onClick={handleClick}
+          sx={{ m: 2 }}
+        >
+        login
+        </Button>
+      </div>
+    <Typography variant="body1">
+      Don't have an account? Sign up <Link to="../signUp">here</Link>
+    </Typography>
     </div>
 
       )
 }
+
+
+
 
 export default connect(null, mapDispatchToProps)(LogIn);
