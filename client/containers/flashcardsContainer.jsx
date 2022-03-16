@@ -29,6 +29,7 @@ const FlashcardsContainer = (props) => {
             
             <p>A flashcard question and answer</p>
             <Flashcard />
+            {/* render flashcard with id question and answer  */}
 
 
         </section>
