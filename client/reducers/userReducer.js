@@ -57,6 +57,7 @@ export const fetchUserLogin = (loginInfo, navigate) => {
     })
     .then((res) => res.json())
     .then((data) => {
+      if(!data.isAuthenticated) return;
       dispatch({type: types.VERIFY_USER, payload: data});
       navigate('/');
     })

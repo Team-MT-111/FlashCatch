@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default function Pokedex() {
+export default function Pokedex(props) {
     return (
-        <h2>This is your pokedex</h2>
-      )
+      <img className='pokemon' src={props.picture} />
+    )
 }

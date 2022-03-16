@@ -28,7 +28,7 @@ const NewFlashcardContainer = (props) => {
       headers: {'Content-Type': 'application/json'}
     })
       .then(res => res.json())
-      .then(res => console.log('success'))
+      .then(res => console.log('success')) //will send back a string "success" if successful
       .catch(err => console.log("error: ", err))
       //on success clear form, display success message on screen
   }

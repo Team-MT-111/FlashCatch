@@ -17,6 +17,7 @@ pokedollar.add = async (req, res, next) => {
     return next();
   } catch(e) {
     console.log('error occured in pokedollar.add', e);
+    return res.status(500).json({error: true});
   }
 };
 
@@ -35,6 +36,7 @@ pokedollar.subtract = async (req, res, next) => {
     return next();
   } catch(e) {
     console.log('error occured in pokedollar.add', e);
+    return res.status(500).json({error: true});
   }
 };
 

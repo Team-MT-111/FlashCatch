@@ -14,8 +14,8 @@ flashcards.getAllFlashcards = (req, res, next) => {
 }
 
 flashcards.addFlashcards = (req, res, next) => {
-  console.log(req.body);
-  const { question, answer, id } = req.body;
+  const { question, answer} = req.body;
+  const id = req.cookies.id;
   const queryString = 
   `
   INSERT INTO flashcards(question, answer, user_id)
@@ -24,6 +24,7 @@ flashcards.addFlashcards = (req, res, next) => {
   pool.query(queryString, [question, answer, id], (err, result) => {
       if (err) { 
         console.log("an error occured in addFlashcards", err);
+        return res.status(500).json({error: true});
       } 
       return next();
   });
@@ -43,6 +44,7 @@ flashcards.getMyFlashcards = (req, res, next) => {
     })
     .catch(() => {
       console.log('error occured during getMyFlashcards');
+      return res.status(500).json({error: true});
     });
 
 }

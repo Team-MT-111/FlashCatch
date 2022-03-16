@@ -7,7 +7,7 @@ import {
   Outlet,
 } from 'react-router-dom'
 import Flashcards from './components/flashcard.jsx';
-import Pokedex from './components/pokedex.jsx';
+import PokedexContainer from './containers/pokedexContainer.jsx';
 import LogIn from './components/logIn.jsx'
 import SignUp from './components/signUp.jsx';
 import NewFlashcardContainer from './containers/NewFlashcardContainer.jsx';
@@ -36,7 +36,7 @@ ReactDOM.render(
   <Routes>
     <Route path="/" element={<App />}/>
     <Route path="flashcards" element={<FlashcardsContainer />} />
-    <Route path="pokedex" element={<Pokedex />} />
+    <Route path="pokedex" element={<PokedexContainer />} />
     <Route path="logIn" element={<LogIn />}/>
     <Route path="signUp" element={<SignUp />}/>
     <Route path="newflashcard" element={<NewFlashcardContainer />}/>
