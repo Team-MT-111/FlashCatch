@@ -26,7 +26,7 @@ function App(props) {
     setFlashcards(props.flashcards.flashcards);
   }, []);
 
-  console.log('flashcards', flashcards);
+
   const flashcardDeck = props.flashcards.flashcards.map(el => {
     return <h1>{el.question}</h1>
   });

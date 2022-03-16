@@ -9,8 +9,19 @@ export default function SignUp() {
 
     let username = document.querySelector('input[name="signUpUsername').value;
     let password = document.querySelector('input[name="signUpPassword').value;
+    const signUpInfo = {
+      username: username,
+      password: password
+    }
 
-    console.log(username, password);
+    fetch('/api/signup', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(signUpInfo)
+    })
+    .then((res) => res.json())
+    .catch((err) => console.log('Error:', err))
+
   }
 
   return (
