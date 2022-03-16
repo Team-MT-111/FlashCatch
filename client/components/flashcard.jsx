@@ -3,11 +3,14 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
+import { Button, CardActionArea, CardActions } from '@mui/material';
 
-// each flashcard is worth same level of pokedollars 
-// upon reviewed, send post request (thunk function) to backend that updates 
-export default function Flashcard(props) {
+ 
+// upon reviewed, send post request (thunk function) to backend that updates pokedollar balance 
+// mapDispatchToProps
+// 
+
+function Flashcard(props) {
 
   // reminders
   // refactor question and answer to show data passed down from mapping over data in flashcardsContainer
@@ -50,7 +53,15 @@ export default function Flashcard(props) {
             </Typography>
           </CardContent>
         </CardActionArea>
+        <CardActions>
+          {/* dispatch action from button click. Pass dispatch action creator in to the Card */}
+          <Button size="small" color="primary">
+            Mark as Reviewed
+          </Button>
+        </CardActions>
       </Card>
     );
   }
 }
+
+export default Flashcard;
