@@ -1,0 +1,37 @@
+#pokedexContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  
+  #portrait {
+    margin-top: 0vh;
+    margin-left: 15vw;
+    height: 80vh;
+    width: 20vw;
+    overflow-y: hidden;
+   
+  
+    h1 {
+      text-align: center;
+    }
+  
+    img {
+      width: 100%;
+      animation: floating 5s ease-in-out infinite normal;
+    }
+  }
+
+  #pokedex-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    
+    .pokemon {
+      width: 100px;
+    }
+    
+    @keyframes floating {
+      0% { transform: translate(0,  0px); }
+      50%  { transform: translate(0, 15px); }
+      100%   { transform: translate(0, -0px); }   
+    }
+  }
+}
