@@ -31,12 +31,41 @@ auth.createUser = async (req, res, next) => {
       pool.query(queryString, [username, password, info.id])
        .then(() => next())
        .catch((e) => {
-         console.log('error occured in aurth.createUser, e');
+         console.log('error occured in aurth.createUser', e);
          Team.findByIdAndDelete(info.id).exec()
            .then(() => console.log('pokdex deleted due to error'))
            .catch((e) => console.log('error occured in auth.createUser', e))
        });
-    })
-}
+    });
+};
+
+auth.login = async (req, res, next) => {
+  const {username, password} = req.body;
+  const queryString = 
+  `
+    SELECT * FROM users
+    WHERE $1 = username AND $2 = password
+  `
+  try {
+    const user = await pool.query(queryString, [username, password]);
+    console.log(user.rows[0]);
+    const teamInfo = await Team.findById(user.rows[0].pokedex);
+    console.log(teamInfo);
+    res.locals = {
+      id: user.rows[0].id,
+      username: user.rows[0].username,
+      trainer: teamInfo.trainer.portrait,
+      isAuthenticated: true,
+      pokemons: teamInfo.pokemons,
+      pokedollars: user.rows[0].pokedollars,
+    }
+    return next();
+  } catch(e) {
+    res.locals = {
+      isAuthenticated: false
+    }
+    return next();
+  }
+};
 
 module.exports = auth;
