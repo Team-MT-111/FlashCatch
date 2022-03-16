@@ -39,8 +39,9 @@ ReactDOM.render(
     <Route path="signUp" element={<SignUp />}/>
     <Route path="newflashcard" element={<NewFlashcardContainer />}/>
   </Routes>
+
+      <GachaBar />
      
-      <GachaBar/>
 
 </BrowserRouter>,
 document.getElementById('root')
