@@ -25,7 +25,7 @@
       }
     }  
     case types.ADD_POKEMON: {
-      pokemons = [...state.pokemons, action.payload,pokemons];
+      pokemons = [...state.pokemons, action.payload.pokemons];
       pokedollars = action.payload.pokedollars;
       return {
         ...state,

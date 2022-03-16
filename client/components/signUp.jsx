@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import LogIn from './logIn';
 import { Button, TextField, Typography, } from '@mui/material'
+import '../styles/logIn.scss';
 
 export default function SignUp() {
   const navigate = useNavigate();
@@ -36,6 +37,7 @@ export default function SignUp() {
       label="Username" 
       variant="outlined"
       onChange={(e) => setUsername(e.target.value)}
+      sx={{ m: 0.5, width: '350px' }}
     >
     </TextField>
     <TextField 
@@ -45,6 +47,8 @@ export default function SignUp() {
       label ="Password" 
       variant="outlined"
       onChange={(e) => setPassword(e.target.value)}
+      color="warning"
+      sx={{ m: 0.5, width: '350px' }}
     >
     </TextField>
     <Button 
@@ -52,6 +56,7 @@ export default function SignUp() {
       variant="contained" 
       size="medium"
       onClick={handleClick}
+      sx={{ m: 2, width: '250px' }}
     >
       login
     </Button>

@@ -1,19 +1,16 @@
-
-
 #pokedexContainer {
   display: grid;
   grid-template-columns: 1fr 1fr;
   user-select: none;
-  background-image: url();
-  background-size: contain;
+  
   
   #portrait {
     margin-top: 0vh;
     margin-left: 15vw;
     width: 500px;
     height: 800px;
+    overflow-x: visible;
     overflow-y: hidden;
-    background-color: rgba(0, 0, 0, 0.5);
   
     h1 {
       text-align: center;
@@ -22,6 +19,7 @@
     img {
       width: 100%;
       animation: floating 5s ease-in-out infinite normal;
+      filter: drop-shadow(5px 10px 5px #070707);
     }
   }
   
@@ -59,6 +57,7 @@
       figcaption {
         text-align: center;
         font-weight: 700;
+        color: white;
       }
     }
     
