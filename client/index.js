@@ -40,7 +40,7 @@ ReactDOM.render(
     <Route path="newflashcard" element={<NewFlashcardContainer />}/>
   </Routes>
      
-          <GachaBar/>
+      <GachaBar/>
 
 </BrowserRouter>,
 document.getElementById('root')
