@@ -25,7 +25,7 @@ export const addPokemonAction = pokemon => ({
   payload: pokemon
 });
 
-export const addPokedollarsAction = pokemon => ({
+export const addPokedollarsAction = pokedollars => ({
   type: types.ADD_POKEDOLLARS,
-  payload: pokemon
+  payload: pokedollars
 });
