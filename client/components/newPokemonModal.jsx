@@ -12,7 +12,8 @@ import { fetchAddPokemon } from '../reducers/userReducer';
 const mapStateToProps = (state) => ({
   user: state.user.pokemons[state.user.pokemons.length - 1],
   isLogged: state.user.isAuthenticated,
-  money: state.user.pokedollars
+  money: state.user.pokedollars,
+  array: state.user.pokemons
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -21,8 +22,8 @@ const mapDispatchToProps = dispatch => ({
   //     dispatch(thunkFunc);
   // }
 
-  gachaMechanic: (pokedollars) => {
-    const thunkFunc = fetchAddPokemon(pokedollars)
+  gachaMechanic: (data) => {
+    const thunkFunc = fetchAddPokemon(data)
     console.log('thunkfunc', thunkFunc)
     dispatch(thunkFunc)
   }
@@ -47,8 +48,8 @@ function TransitionsModal(props) {
    image: 'hehe',
    pokemon: 'MewTwo',
   }
-  
-  console.log('money', props.money)
+  console.log('props', props);
+  console.log('props.user', props.user)
   if (props.isLogged) {
     data.image = props.user.picture
     data.pokemon = props.user.name
@@ -60,7 +61,10 @@ function TransitionsModal(props) {
 
    function handleClick(e){
     e.preventDefault()
-    props.gachaMechanic(props.money)
+    props.gachaMechanic({
+      pokedollars: props.money,
+      pokemons: props.array
+    })
     handleOpen()
   }
 

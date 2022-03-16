@@ -25,7 +25,7 @@
       }
     }  
     case types.ADD_POKEMON: {
-      pokemons = [...state.pokemons, action.payload,pokemons];
+      pokemons = [...state.pokemons, action.payload.pokemons];
       pokedollars = action.payload.pokedollars;
       return {
         ...state,
@@ -66,17 +66,16 @@ export const fetchUserLogin = (loginInfo, navigate) => {
   }
 };
 
-export const fetchAddPokemon = (pokedollars) => {
+export const fetchAddPokemon = (data) => {
   return (dispatch) => {
     fetch('/api/gacha', {
-      method: 'POST',
+      method: 'PATCH',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(pokedollars)
+      body: JSON.stringify(data)
     })
-    .then((res) => 
-    console.log(res),
-    res.json())
+    .then((res) => res.json())
     .then((data) => {
+      console.log('fetchAddPokemon data', data);
       dispatch({type: types.ADD_POKEMON, payload: data});
     })
     .catch((err) =>  console.log('Error:', err))

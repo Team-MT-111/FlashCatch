@@ -71,6 +71,16 @@ auth.login = async (req, res, next) => {
   }
 };
 
+auth.generateSession = (req, res, next) => {
+  const {id, username, trainer, isAuthenticated, pokemons, pokedollars} = res.locals;
+  res.cookie('id', id);
+  res.cookie('username', username);
+  res.cookie('trainer', trainer);
+  res.cookie('isAuthenticated', isAuthenticated);
+  res.cookie('pokemons', pokemons);
+  res.cookie('pokedollars', pokedollars);
+}
+
 auth.logout = (req, res, next) => {
 
 };

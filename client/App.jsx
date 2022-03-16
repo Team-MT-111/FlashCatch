@@ -21,10 +21,10 @@ const mapDispatchToProps = dispatch => ({
 function App(props) {
   const [flashcards, setFlashcards] = useState([]);
 
-  useEffect(() => {
-    props.getAllFlashcards(); //async issue, need async await
-    setFlashcards(props.flashcards.flashcards);
-  }, []);
+  // useEffect(() => {
+  //   props.getAllFlashcards(); //async issue, need async await
+  //   setFlashcards(props.flashcards.flashcards);
+  // }, []);
 
   console.log('flashcards', flashcards);
   const flashcardDeck = props.flashcards.flashcards.map(el => {
