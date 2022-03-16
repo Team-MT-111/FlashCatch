@@ -11,6 +11,7 @@ const intialState = {
 
 const flashcardsReducer = (state = intialState, action) => {
   let flashcards;
+
   switch (action.type){
     case types.ADD_FLASHCARD: {
       flashcards = [...state.flashcards, action.payload]

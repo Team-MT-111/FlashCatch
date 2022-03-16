@@ -19,7 +19,15 @@ describe('UserReducer', () => {
     });
   });
 
-
+  describe('VERIFY_USER', () => {
+    const action = {
+      type: 'VERIFY_USER',
+      payload: {
+        username: 'Miko',
+        password: '1234'
+      }
+    }
+  })
 
 
 
