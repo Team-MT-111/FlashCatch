@@ -4,7 +4,8 @@ import './style.scss'
 import NavBar from './components/NavBar.jsx'
 import MenuListComposition from "./components/menu";
 import { connect } from 'react-redux';
-import { fetchAllFlashcards } from "./reducers/flashcardsReducer";
+import { fetchMyFlashcards } from "./reducers/flashcardsReducer";
+import FlashcardsContainer from "./containers/flashcardsContainer";
 
 const mapStateToProps = (state) => ({
   user: state.user,
@@ -12,18 +13,19 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getAllFlashcards: () => {
-      const thunkFunc = fetchAllFlashcards();
+  getMyFlashcards: (id) => {
+      const thunkFunc = fetchMyFlashcards(id);
       dispatch(thunkFunc);
   }
 });
 
 function App(props) {
-  const [flashcards, setFlashcards] = useState([]);
+  // const [flashcards, setFlashcards] = useState([]);
 
   useEffect(() => {
-    props.getAllFlashcards(); //async issue, need async await
-    setFlashcards(props.flashcards.flashcards);
+    console.log('props in use effect:', props);
+    props.getMyFlashcards(props.user.id); //async issue, need async await
+    // setFlashcards(props.flashcards.flashcards);
   }, []);
 
 
@@ -33,7 +35,8 @@ function App(props) {
   return (
     <div>
       <h1>HomePage</h1>
-      {flashcardDeck}
+      {/* {flashcardDeck} */}
+      <FlashcardsContainer />
     </div>
   )
 }

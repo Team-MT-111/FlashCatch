@@ -29,3 +29,8 @@ export const addPokedollarsAction = pokedollars => ({
   type: types.ADD_POKEDOLLARS,
   payload: pokedollars
 });
+
+export const getMyFlashcardsAction = flashcards => ({
+  type: types.GET_MYFLASHCARDS,
+  payload: flashcards
+});

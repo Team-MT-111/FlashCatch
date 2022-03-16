@@ -27,6 +27,13 @@ const flashcardsReducer = (state = intialState, action) => {
         flashcards
       }
     } 
+    case types.GET_MYFLASHCARDS: {
+      flashcards = [...state.flashcards, action.payload]
+      return {
+        ...state,
+        flashcards
+      }
+    } 
     default: {
       return state
     }
@@ -59,6 +66,20 @@ export const fetchAllFlashcards = () => {
     .then((res) => res.json())
     .then((data) => {
       dispatch({type: types.GET_FLASHCARDS, payload: data})
+    })
+    .catch((err) => console.log('Error:', err));
+  }
+};
+
+export const fetchMyFlashcards = (id) => {
+  return (dispatch) => {
+    fetch(`/myflashcards/:${id}`,{
+      method: 'GET',
+      headers: {'Content-Type': 'application/json'}, 
+    })
+    .then((res) => res.json())
+    .then((data) => {
+      dispatch({type: types.GET_MYFLASHCARDS, payload: data})
     })
     .catch((err) => console.log('Error:', err));
   }

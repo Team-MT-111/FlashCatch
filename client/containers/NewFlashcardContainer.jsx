@@ -21,14 +21,12 @@ const NewFlashcardContainer = (props) => {
     };
 
     console.log('flashcard content:', card);
-    setFlashcardSaved(true);
     fetch('/api/flashcards', {
       method: 'POST',
       body: JSON.stringify(card),
       headers: {'Content-Type': 'application/json'}
     })
-      .then(res => res.json())
-      .then(res => console.log('success')) //will send back a string "success" if successful
+      .then(res => setFlashcardSaved(true))
       .catch(err => console.log("error: ", err))
       //on success clear form, display success message on screen
   }

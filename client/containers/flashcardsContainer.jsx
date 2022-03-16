@@ -1,15 +1,16 @@
 import React from 'react'
 import Flashcard from '../components/flashcard.jsx'
+import { connect } from 'react-redux';
 // const flashCards = flashcard array map
 
 const mapStateToProps = (state) => ({
-    // results: state.something
+    flashcards: state.flashcards
 })
 
 const cards = []
 
 const FlashcardsContainer = (props) => {
-    
+    console.log('flashcard container props:', props.flashcards.flashcards)
     // for (let i = 0; i < props.results.length; i++){
     //     cards.push(
     //         <Flashcard
@@ -37,4 +38,4 @@ const FlashcardsContainer = (props) => {
 }
 
 
-export default FlashcardsContainer
+export default connect(mapStateToProps, null)(FlashcardsContainer)
