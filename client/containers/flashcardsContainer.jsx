@@ -1,15 +1,25 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+import {useNavigate} from 'react-router-dom'
+import {connect} from 'react-redux'
 import Flashcard from '../components/flashcard.jsx'
 // const flashCards = flashcard array map
 
 const mapStateToProps = (state) => ({
-    // results: state.something
+    user: state.user
 })
 
 const cards = []
 
 const FlashcardsContainer = (props) => {
+    const navigate = useNavigate();
     
+    useEffect(() => {
+        if(props.user.isAuthenticated !== true) {
+            navigate('/login');
+        }
+    }, []);
+  
+    console.log('flash', props.user);
     // for (let i = 0; i < props.results.length; i++){
     //     cards.push(
     //         <Flashcard
@@ -18,7 +28,6 @@ const FlashcardsContainer = (props) => {
     //         />
     //     )
     // }
-
 
     return (
         <section id="flashcards-container">
@@ -37,4 +46,4 @@ const FlashcardsContainer = (props) => {
 }
 
 
-export default FlashcardsContainer
+export default connect(mapStateToProps, null)(FlashcardsContainer);

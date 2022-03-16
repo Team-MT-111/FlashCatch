@@ -1,13 +1,22 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+import {useNavigate} from 'react-router-dom'
 import { connect } from 'react-redux'
 import Pokedex from '../components/pokedex.jsx'
+import '../styles/pokedexContainer.scss'
 
 const mapStateToProps = (state) => ({
      user: state.user
 })
 
 const PokedexContainer = (props) => {
-    console.log(props.user);
+  const navigate = useNavigate();
+
+    useEffect(() => {
+        if(props.user.isAuthenticated !== true) {
+            navigate('/login');
+        }
+    }, []);
+
     const poke = []
 
     for (let i = 0; i < props.user.pokemons.length; i++){

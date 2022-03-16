@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import {useNavigate} from 'react-router-dom';
+import {connect} from 'react-redux';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
@@ -6,8 +8,19 @@ import Container from '@mui/material/Container';
 import CssBaseline from '@mui/material/CssBaseline';
 import Typography from '@mui/material/Typography';
 
+const mapStateToProps = (state) => ({
+  user: state.user
+})
+
 const NewFlashcardContainer = (props) => {
   
+  const navigate = useNavigate();
+
+  useEffect(() => {
+      if(props.user.isAuthenticated !== true) {
+          navigate('/login');
+      }
+  }, []);
   // component level state 
     // boolean to reset form after sucessful save of flashcard?
   const [flashcardSaved, setFlashcardSaved] = useState(false);
@@ -72,7 +85,7 @@ const NewFlashcardContainer = (props) => {
   )
 }
 
-export default NewFlashcardContainer;
+export default connect(mapStateToProps, null)(NewFlashcardContainer);
 
 // import React, { useState, useEffect } from 'react';
 

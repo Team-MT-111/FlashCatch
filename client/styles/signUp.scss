@@ -9,4 +9,14 @@
         flex-direction:column;
         justify-content: center;
     }
+    #signUpBtn {
+        margin-left: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: red;
+    }
+    .link {
+        margin-right: 50px;
+    }
 }

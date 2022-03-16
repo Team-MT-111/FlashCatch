@@ -59,8 +59,8 @@ function TransitionsModal(props) {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-   function handleClick(e){
-    e.preventDefault()
+  function handleClick(e){
+    e.preventDefault();
     props.gachaMechanic({
       pokedollars: props.money,
       pokemons: props.array

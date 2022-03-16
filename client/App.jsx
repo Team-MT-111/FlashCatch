@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, Outlet } from 'react-router-dom'
+import { Link, Outlet, useNavigate } from 'react-router-dom'
 import './style.scss'
 import NavBar from './components/NavBar.jsx'
 import MenuListComposition from "./components/menu";
@@ -21,10 +21,18 @@ const mapDispatchToProps = dispatch => ({
 function App(props) {
   const [flashcards, setFlashcards] = useState([]);
 
-  // useEffect(() => {
-  //   props.getAllFlashcards(); //async issue, need async await
-  //   setFlashcards(props.flashcards.flashcards);
-  // }, []);
+  const navigate = useNavigate();
+    
+  useEffect(() => {
+      if(props.user.isAuthenticated !== true) {
+          navigate('/login');
+      }
+  }, []);
+
+  useEffect(() => {
+    props.getAllFlashcards(); //async issue, need async await
+    setFlashcards(props.flashcards.flashcards);
+  }, []);
 
   console.log('flashcards', flashcards);
   const flashcardDeck = props.flashcards.flashcards.map(el => {
