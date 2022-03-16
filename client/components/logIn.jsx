@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import SignUp from './signUp';
 import { connect } from 'react-redux';
 import { fetchUserLogin } from '../reducers/userReducer';
-import { Button, TextField, Typography, } from '@mui/material'
+import { Button, TextField, Typography,} from '@mui/material'
 
 import '../styles/logIn.scss';
 
@@ -66,13 +66,13 @@ const handleClick = (e) => {
           variant="contained" 
           size="medium"
           onClick={handleClick}
-          sx={{ m: 2, width: '325px'}}
+          sx={{ m: 2, width: '250px' }}
         >
         login
         </Button>
       </div>
     <Typography variant="body1">
-      Wanna Become the Very Best? Start Your Journey <Link to="../signUp">here</Link>
+      Not a Pokemon Trainer? Become the Very Best <Link to="../signUp">here</Link>
     </Typography>
     </div>
 

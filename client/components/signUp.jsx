@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import LogIn from './logIn';
 import { Button, TextField, Typography, } from '@mui/material'
+import '../styles/logIn.scss';
 
 import '../styles/signUp.scss';
 
@@ -49,6 +50,10 @@ export default function SignUp() {
       label ="Password" 
       variant="outlined"
       onChange={(e) => setPassword(e.target.value)}
+<<<<<<< HEAD
+=======
+      color="warning"
+>>>>>>> 7890a1604c3ab1a4eb7c866a2f6072c5720575d5
       sx={{ m: 0.5, width: '350px' }}
     >
     </TextField>
@@ -57,7 +62,11 @@ export default function SignUp() {
       variant="contained" 
       size="medium"
       onClick={handleClick}
+<<<<<<< HEAD
       sx={{ m: 2, width: '325px'}}
+=======
+      sx={{ m: 2, width: '250px' }}
+>>>>>>> 7890a1604c3ab1a4eb7c866a2f6072c5720575d5
     >
       login
     </Button>

@@ -18,11 +18,16 @@ function rollRandomPokemon(allPokemons) {
 
 gacha.rollOnce = async (req, res, next) => {
   const {id} = req.cookies;
+<<<<<<< HEAD
   const pokemons = (req.body.pokemons);
+=======
+  const pokemons = JSON.parse(req.body.pokemons);
+>>>>>>> 7890a1604c3ab1a4eb7c866a2f6072c5720575d5
   if(!pokemonCache) pokemonCache = await axios.get(pokemonApi);
   const reward = rollRandomPokemon(pokemonCache.data.results);
   res.locals.pokemons = reward;
   pokemons.push(reward);
+  pokemons.sort((a, b) => a.id - b.id)
   const queryString = 
   `
   SELECT pokedex FROM users
