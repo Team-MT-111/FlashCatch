@@ -21,14 +21,14 @@ const flashcardsReducer = (state = intialState, action) => {
       }
     };
     case types.GET_FLASHCARDS: {
-      flashcards = [...state.flashcards, action.payload]
+      flashcards = [action.payload]
       return {
         ...state,
         flashcards
       }
     } 
     case types.GET_MYFLASHCARDS: {
-      flashcards = [...state.flashcards, action.payload]
+      flashcards = [action.payload]
       return {
         ...state,
         flashcards
@@ -73,12 +73,14 @@ export const fetchAllFlashcards = () => {
 
 export const fetchMyFlashcards = (id) => {
   return (dispatch) => {
-    fetch(`/myflashcards/:${id}`,{
+    console.log('id in thunk func: ', id);
+    fetch(`/api/myflashcards/${id}`,{
       method: 'GET',
       headers: {'Content-Type': 'application/json'}, 
     })
     .then((res) => res.json())
     .then((data) => {
+      console.log('data', data);
       dispatch({type: types.GET_MYFLASHCARDS, payload: data})
     })
     .catch((err) => console.log('Error:', err));

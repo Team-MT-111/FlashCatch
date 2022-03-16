@@ -14,6 +14,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = dispatch => ({
   getMyFlashcards: (id) => {
+      console.log('userid in getMyFlashcards: ', id);
       const thunkFunc = fetchMyFlashcards(id);
       dispatch(thunkFunc);
   }
@@ -21,7 +22,6 @@ const mapDispatchToProps = dispatch => ({
 
 function App(props) {
   // const [flashcards, setFlashcards] = useState([]);
-
   useEffect(() => {
     console.log('props in use effect:', props);
     props.getMyFlashcards(props.user.id); //async issue, need async await
