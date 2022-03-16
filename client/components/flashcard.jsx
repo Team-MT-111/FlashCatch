@@ -14,8 +14,9 @@ function Flashcard(props) {
 
   // reminders
   // refactor question and answer to show data passed down from mapping over data in flashcardsContainer
+  console.log('props in flashcard', props)
   const { id, question, answer } = props;
-    
+  console.log('flashcard props: ', props);  
   // isQuestion state used to determine whether to display question or answer
   const [isQuestion, setIsQuestion] = useState(true);
 
@@ -32,8 +33,8 @@ function Flashcard(props) {
               Question
             </Typography>
             <Typography variant="body1" color="text.secondary">
-              Display Question from props
-              {/* {question} */}
+              {/* Display Question from props */}
+              {question}
             </Typography>
           </CardContent>
         </CardActionArea>
@@ -48,8 +49,8 @@ function Flashcard(props) {
               Answer
             </Typography>
             <Typography variant="body1" color="text.secondary">
-              Display Answer from props
-              {/* {answer} */}
+              {/* Display Answer from props */}
+              {answer}
             </Typography>
           </CardContent>
         </CardActionArea>

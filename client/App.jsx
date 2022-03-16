@@ -14,29 +14,36 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = dispatch => ({
   getMyFlashcards: (id) => {
-      console.log('userid in getMyFlashcards: ', id);
+      // console.log('userid in getMyFlashcards: ', id);
       const thunkFunc = fetchMyFlashcards(id);
       dispatch(thunkFunc);
   }
 });
 
 function App(props) {
-  // const [flashcards, setFlashcards] = useState([]);
-  useEffect(() => {
-    console.log('props in use effect:', props);
-    props.getMyFlashcards(props.user.id); //async issue, need async await
-    // setFlashcards(props.flashcards.flashcards);
-  }, []);
+  // const [isStudyMode, setIsStudyMode] = useState(false);
+  // props.getMyFlashcards(props.user.id);
+  // click handler here 
+    // setIsStudyMode to true
 
+  // useEffect(() => {
+  //   // console.log('props in use effect:', props);
+  //   props.getMyFlashcards(props.user.id); //async issue, need async await
+  //   // setFlashcards(props.flashcards.flashcards);
+  
+  // }, []);
+  // pass in isStudyMode as a state dependency 
 
-  const flashcardDeck = props.flashcards.flashcards.map(el => {
-    return <h1>{el.question}</h1>
-  });
+  // const flashcardDeck = props.flashcards.flashcards.map(el => {
+  //   return <h1>{el.question}</h1>
+  // });
   return (
     <div>
       <h1>HomePage</h1>
-      {/* {flashcardDeck} */}
+      {/* {flashcards} */}
+      {/* if isStudyMode is false, don't display flashcards. Else display flashcards  */}
       <FlashcardsContainer />
+      {/* define a button here with an onclick event that changes isLoaded. Button says "Click here to study!" */}
     </div>
   )
 }

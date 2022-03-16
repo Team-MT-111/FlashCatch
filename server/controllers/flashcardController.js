@@ -40,7 +40,7 @@ flashcards.getMyFlashcards = (req, res, next) => {
 
   pool.query(queryString, [userId])
     .then((result) => {
-      console.log('result:', result)
+      // console.log('result:', result)
       res.locals = result.rows;
       return next();
     })
