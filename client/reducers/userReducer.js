@@ -58,6 +58,7 @@ export const fetchUserLogin = (loginInfo, navigate) => {
     .then((res) => res.json())
     .then((data) => {
       if(!data.isAuthenticated) return;
+      console.log('data in reducer', data)
       dispatch({type: types.VERIFY_USER, payload: data});
       navigate('/');
     })
@@ -72,7 +73,9 @@ export const fetchAddPokemon = (pokedollars) => {
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(pokedollars)
     })
-    .then((res) => res.json())
+    .then((res) => 
+    console.log(res),
+    res.json())
     .then((data) => {
       dispatch({type: types.ADD_POKEMON, payload: data});
     })
