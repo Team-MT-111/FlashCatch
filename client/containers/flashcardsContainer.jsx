@@ -29,7 +29,7 @@ const FlashcardsContainer = (props) => {
             
             <p>A flashcard question and answer</p>
             <Flashcard />
-            {/* render flashcard with id question and answer  */}
+            {/* render flashcard and pass down on props: id, question, and answer  */}
 
 
         </section>
