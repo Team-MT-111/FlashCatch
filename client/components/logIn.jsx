@@ -1,17 +1,30 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import SignUp from './signUp';
+import { connect } from 'react-redux';
+import { fetchUserLogin } from '../reducers/userReducer';
 
-export default function LogIn() {
+const mapDispatchToProps = dispatch => ({
+    verifyUser: (loginInfo, navigate) => {
+        const thunkFunc = fetchUserLogin(loginInfo, navigate);
+        dispatch(thunkFunc);
+    }
+});
 
+function LogIn(props) {
+const navigate = useNavigate();
 const handleClick = (e) => {
     e.preventDefault()
 
-    let username = document.querySelector('input[name="logInUsername"]').value;
-    let password = document.querySelector('input[name="logInPassword"]').value;
-
+    const username = document.querySelector('input[name="logInUsername"]').value;
+    const password = document.querySelector('input[name="logInPassword"]').value;
+    const loginInfo = {
+        username: username,
+        password: password
+    }
+   
     // this is where we would call dispatch
-    console.log(username, password)
+    props.verifyUser(loginInfo, navigate);
 }
 
     return (
@@ -30,3 +43,5 @@ const handleClick = (e) => {
 
       )
 }
+
+export default connect(null, mapDispatchToProps)(LogIn);

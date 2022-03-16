@@ -48,7 +48,7 @@
 
 export default userReducer;
 
-export const fetchUserLogin = (loginInfo) => {
+export const fetchUserLogin = (loginInfo, navigate) => {
   return (dispatch) => {
     fetch('/api/login', {
       method: 'POST',
@@ -58,6 +58,7 @@ export const fetchUserLogin = (loginInfo) => {
     .then((res) => res.json())
     .then((data) => {
       dispatch({type: types.VERIFY_USER, payload: data});
+      navigate('/');
     })
     .catch((err) =>  console.log('Error:', err))
   }

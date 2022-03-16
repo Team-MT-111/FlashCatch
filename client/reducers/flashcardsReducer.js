@@ -14,14 +14,14 @@ const flashcardsReducer = (state = intialState, action) => {
 
   switch (action.type){
     case types.ADD_FLASHCARD: {
-      flashcards = [...state.flashcards, action.payload]
+      flashcards = [...state.flashcards,action.payload]
       return {
         ...state,  
         flashcards
       }
     };
     case types.GET_FLASHCARDS: {
-      flashcards = action.payload
+      flashcards = [...state.flashcards, action.payload]
       return {
         ...state,
         flashcards

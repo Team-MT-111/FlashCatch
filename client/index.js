@@ -15,9 +15,11 @@ import App from './App.jsx';
 import NavBar from './components/NavBar.jsx'
 import FlashcardsContainer from './containers/flashcardsContainer.jsx'
 import GachaBar from './components/gacha.jsx'
-
+import store from './store'
+import {Provider} from 'react-redux';
 
 ReactDOM.render(
+  <Provider store={store}>
   <BrowserRouter>
    <div>
       <br></br>
@@ -43,6 +45,7 @@ ReactDOM.render(
       <GachaBar />
      
 
-</BrowserRouter>,
+</BrowserRouter>
+</Provider>,
 document.getElementById('root')
 );
