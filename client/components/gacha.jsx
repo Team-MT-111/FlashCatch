@@ -5,16 +5,17 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import TransitionsModal from './newPokemonModal';
+import { connect } from 'react-redux'
 
-const mapStateToProps = state => {
-  pokedollars: state.pokedollars
-}
+const mapStateToProps = state => ({
+  pokedollars: state.user.pokedollars
+})
 
 
 
-export default function GachaBar(props){
+function GachaBar(props){
   
-
+console.log('props in GachaBar', props)
     const handleClick = (e) => {
         e.preventDefault()
 
@@ -29,15 +30,14 @@ export default function GachaBar(props){
               
             <TransitionsModal />
               <AttachMoneyIcon/>
-              <p>15</p>
-              {/* <p>{pokedollars}</p> */}
+              <p>{props.pokedollars}</p>
             </Toolbar>  
           </AppBar>
         </Box>
               );
 }
 
-
+export default connect(mapStateToProps, null)(GachaBar)
 
 
 

@@ -6,6 +6,30 @@ import Fade from '@mui/material/Fade';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import CatchingPokemonIcon from '@mui/icons-material/CatchingPokemon';
+import { connect } from 'react-redux'
+import { fetchAddPokemon } from '../reducers/userReducer';
+
+const mapStateToProps = (state) => ({
+  user: state.user.pokemons[state.user.pokemons.length - 1],
+  isLogged: state.user.isAuthenticated,
+  money: state.user.pokedollars,
+  array: state.user.pokemons
+})
+
+const mapDispatchToProps = dispatch => ({
+  // verifyUser: (loginInfo, navigate) => {
+  //     const thunkFunc = fetchUserLogin(loginInfo, navigate);
+  //     dispatch(thunkFunc);
+  // }
+
+  gachaMechanic: (data) => {
+    const thunkFunc = fetchAddPokemon(data)
+    console.log('thunkfunc', thunkFunc)
+    dispatch(thunkFunc)
+  }
+
+});
+
 
 const style = {
   position: 'absolute',
@@ -19,17 +43,35 @@ const style = {
   p: 4,
 };
 
- export default function TransitionsModal(props) {
-  
-console.log(props)
-const [open, setOpen] = React.useState(false);
+function TransitionsModal(props) {
+  let data = {
+   image: 'hehe',
+   pokemon: 'MewTwo',
+  }
+  console.log('props', props);
+  console.log('props.user', props.user)
+  if (props.isLogged) {
+    data.image = props.user.picture
+    data.pokemon = props.user.name
+  }
+
+  const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  function handleClick(e){
+    e.preventDefault();
+    props.gachaMechanic({
+      pokedollars: props.money,
+      pokemons: props.array
+    })
+    handleOpen()
+  }
 
 
   return (
     <div>
-      <IconButton color='inherit' onClick={handleOpen}>
+      <IconButton color='inherit' onClick={handleClick}>
         <CatchingPokemonIcon />
       </IconButton>
       <Modal
@@ -46,11 +88,9 @@ const [open, setOpen] = React.useState(false);
         <Fade in={open}>
           <Box sx={style}>
             <Typography id="transition-modal-title" variant="h6" component="h2">
-              Wow! You got a MewTwo!
-            </Typography>
-            <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-              MewTwo is a psychic type pokemon blah blah blah, you have this many pokebucks left blah blah
-            </Typography>
+              Wow! You got a {data.pokemon}!
+            </Typography>           
+            <img className='pokemon' src={data.image} />
           </Box>
         </Fade>
       </Modal>
@@ -58,3 +98,4 @@ const [open, setOpen] = React.useState(false);
   );
 }
 
+export default connect(mapStateToProps, mapDispatchToProps)(TransitionsModal);

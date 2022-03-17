@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, Outlet } from 'react-router-dom'
+import { Link, Outlet, useNavigate } from 'react-router-dom'
 import './style.scss'
 import NavBar from './components/NavBar.jsx'
 import MenuListComposition from "./components/menu";
@@ -26,6 +26,7 @@ function App(props) {
   // click handler here 
     // setIsStudyMode to true
 
+<<<<<<< HEAD
   // useEffect(() => {
   //   // console.log('props in use effect:', props);
   //   props.getMyFlashcards(props.user.id); //async issue, need async await
@@ -33,6 +34,20 @@ function App(props) {
   
   // }, []);
   // pass in isStudyMode as a state dependency 
+=======
+  const navigate = useNavigate();
+    
+  useEffect(() => {
+      if(props.user.isAuthenticated !== true) {
+          navigate('/login');
+      }
+  }, []);
+
+  useEffect(() => {
+    props.getAllFlashcards(); //async issue, need async await
+    setFlashcards(props.flashcards.flashcards);
+  }, []);
+>>>>>>> John/frontEnd
 
   // const flashcardDeck = props.flashcards.flashcards.map(el => {
   //   return <h1>{el.question}</h1>

@@ -19,7 +19,7 @@ export default function NavBar(props){
           <AppBar position="static">
             <Toolbar>
               <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                Pokemon Training Card Game / Waifu Hunter Pro 
+                Pokemon Training Card Game / HM05 Cards / Gacha Catch'em All! 
               </Typography>
             
           <MenuListComposition/>
