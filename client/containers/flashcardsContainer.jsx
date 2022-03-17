@@ -3,6 +3,7 @@ import {useNavigate} from 'react-router-dom'
 import Flashcard from '../components/flashcard.jsx'
 import { connect } from 'react-redux';
 import { fetchAddPokedollars } from '../reducers/userReducer.js';
+import '../styles/flashcardsContainer.scss';
 // const flashCards = flashcard array map
 
 const mapStateToProps = (state) => ({

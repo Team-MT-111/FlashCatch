@@ -67,7 +67,7 @@ function Flashcard(props) {
     );
   } else {
     return (
-      <Card sx={{ maxWidth: 345 }}>
+      <Card sx={{ maxWidth: 345 }} id='flashcards'>
         <CardActionArea onClick={handleClick}>
           <CardContent>
             <Typography gutterBottom variant="h7" component="div">
