@@ -1,25 +1,15 @@
-<<<<<<< HEAD
-import React, {useEffect, useState} from 'react'
-=======
-import React, {useEffect} from 'react'
+import React, {useState, useEffect} from 'react'
 import {useNavigate} from 'react-router-dom'
-import {connect} from 'react-redux'
->>>>>>> John/frontEnd
 import Flashcard from '../components/flashcard.jsx'
 import { connect } from 'react-redux';
-// import e from 'express';
 import { fetchAddPokedollars } from '../reducers/userReducer.js';
 // const flashCards = flashcard array map
 
 const mapStateToProps = (state) => ({
-<<<<<<< HEAD
     // user: state.user,
     user:state.user,
     flashcards: state.flashcards,
     isLogged: state.user.isAuthenticated
-=======
-    user: state.user
->>>>>>> John/frontEnd
 })
 
 // const mapDispatchToProps = dispatch => ({
@@ -33,7 +23,6 @@ const mapStateToProps = (state) => ({
 // const cards = []
 
 const FlashcardsContainer = (props) => {
-<<<<<<< HEAD
     const [array, setArray] = useState([]);
 
     useEffect(() => {
@@ -49,7 +38,6 @@ const FlashcardsContainer = (props) => {
         return (<Flashcard id={el.id} question={el.question} answer={el.answer} />)
        })
     // console.log('array after map', array2);
-=======
     const navigate = useNavigate();
     
     useEffect(() => {
@@ -58,7 +46,7 @@ const FlashcardsContainer = (props) => {
         }
     }, []);
   
-    console.log('flash', props.user);
+    // console.log('flash', props.user);
     // for (let i = 0; i < props.results.length; i++){
     //     cards.push(
     //         <Flashcard
@@ -68,14 +56,10 @@ const FlashcardsContainer = (props) => {
     //     )
     // }
 
->>>>>>> John/frontEnd
     return (
         <section id="flashcards-container">
             {/* {cards} */}
-
-            <p>this is where all the flashcards will go</p>
-            
-            <p>A flashcard question and answer</p>
+            <h2><p>Your Flashcards!</p></h2>
             {
                 array2 || null
             }
@@ -85,8 +69,4 @@ const FlashcardsContainer = (props) => {
 }
 
 
-<<<<<<< HEAD
-export default connect(mapStateToProps, null)(FlashcardsContainer)
-=======
 export default connect(mapStateToProps, null)(FlashcardsContainer);
->>>>>>> John/frontEnd

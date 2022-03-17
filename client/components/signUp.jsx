@@ -14,23 +14,6 @@ export default function SignUp() {
   const handleClick = e => {
     e.preventDefault()
 
-<<<<<<< HEAD
-    let username = document.querySelector('input[name="signUpUsername').value;
-    let password = document.querySelector('input[name="signUpPassword').value;
-    const signUpInfo = {
-      username: username,
-      password: password
-    }
-
-    fetch('/api/signup', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(signUpInfo)
-    })
-    .then((res) => res.json())
-    .catch((err) => console.log('Error:', err))
-
-=======
     const signupInfo = {
       username,
       password
@@ -42,12 +25,11 @@ export default function SignUp() {
       body: JSON.stringify(signupInfo)
     })
       .then(() => navigate('/login'));
->>>>>>> John/frontEnd
   }
 
   return (
     <div id="signUp">
-    <Typography variant="h2">
+    <Typography variant="h2" id='signUpTitleText'>
       Sign Up and Become a Pokemon Master
     </Typography>
     <div id="inputs">
@@ -57,6 +39,7 @@ export default function SignUp() {
       id="outlilned-basic" 
       label="Username" 
       variant="outlined"
+      color="warning"
       onChange={(e) => setUsername(e.target.value)}
       sx={{ m: 0.5, width: '350px' }}
     >
@@ -70,6 +53,7 @@ export default function SignUp() {
       onChange={(e) => setPassword(e.target.value)}
       color="warning"
       sx={{ m: 0.5, width: '350px' }}
+      type="password"
     >
     </TextField>
     <Button 
@@ -82,7 +66,7 @@ export default function SignUp() {
       login
     </Button>
     </div>
-    <Typography variant="body1" className="link">
+    <Typography variant="body1" id="linkToLoginText">
       Already a Pokemon Trainer? Resume Your Journey <Link to="../logIn">Here</Link>
     </Typography>
     </div>

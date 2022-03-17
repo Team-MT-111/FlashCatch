@@ -51,8 +51,8 @@ function TransitionsModal(props) {
   console.log('props', props);
   console.log('props.user', props.user)
   if (props.isLogged) {
-    data.image = props.user.picture
-    data.pokemon = props.user.name
+    data.image = props?.user?.picture 
+    data.pokemon = props?.user?.name
   }
 
   const [open, setOpen] = React.useState(false);
@@ -61,6 +61,7 @@ function TransitionsModal(props) {
 
   function handleClick(e){
     e.preventDefault();
+    if(props.money < 5) return;
     props.gachaMechanic({
       pokedollars: props.money,
       pokemons: props.array

@@ -1,6 +1,6 @@
 # PokeImpact
 
-pokeImpact is a flashcard application with a gatcha attached to it. Maintain your motivation for studying through pokemon collection
+PokeImpact is a flashcard application with a reward system attached. Maintain your motivation for studying through completing your collection while learning.
 
 ## Table of Contents
 - [Features](#features)
@@ -14,11 +14,27 @@ pokeImpact is a flashcard application with a gatcha attached to it. Maintain you
 
 
 ## Features
+- Ability to see all the flashcards that have been created and are in the database
+- Log in, Sign up and authentication to allow the user to store their flashcards
+- Ability to create flashcards, review them and doing so earns you a token (pokedollars)
+- Using 5 tokens(pokedollars) you can pull a random pokemon
+- A trainer profile is created when you sign up and attached will be a pokedex to store all the pokemon you have pulled
 
 #
 ##### Return to [Top] (#PokeImpact)
 
 ## Technologies
+- React
+- Redux
+- React Hooks
+- React Router
+- Node
+- Express
+- NoSQL (MongoDB)
+- SQL (PostgreSQL)
+- Jest
+- React-Testing-Library
+- SASS
 
 #
 ##### Return to [Top] (#PokeImpact)

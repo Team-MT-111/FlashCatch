@@ -37,7 +37,7 @@ const handleClick = (e) => {
 
     return (
     <div id="logIn">
-    <Typography variant="h2">
+    <Typography variant="h2" id="loginTitleText">
       Login to Contiue the Quest to Catch Them All
     </Typography>
       <div id="inputs">
@@ -47,6 +47,7 @@ const handleClick = (e) => {
           id="outlilned-basic" 
           label="Username" 
           variant="outlined"
+          color="warning"
           onChange={(e) => setUsername(e.target.value)}
           sx={{ m: 0.5, width: '350px' }}
         >
@@ -57,8 +58,10 @@ const handleClick = (e) => {
           id="outlilned-basic" 
           label ="Password" 
           variant="outlined"
+          color="warning"
           onChange={(e) => setPassword(e.target.value)}
           sx={{ m: 0.5, width: '350px' }}
+          type="password"
         >
         </TextField>
         <Button
@@ -71,7 +74,7 @@ const handleClick = (e) => {
         login
         </Button>
       </div>
-    <Typography variant="body1">
+    <Typography variant="body1" id='linkToSignUpText'>
       Not a Pokemon Trainer? Become the Very Best <Link to="../signUp">here</Link>
     </Typography>
     </div>

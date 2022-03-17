@@ -26,15 +26,6 @@ function App(props) {
   // click handler here 
     // setIsStudyMode to true
 
-<<<<<<< HEAD
-  // useEffect(() => {
-  //   // console.log('props in use effect:', props);
-  //   props.getMyFlashcards(props.user.id); //async issue, need async await
-  //   // setFlashcards(props.flashcards.flashcards);
-  
-  // }, []);
-  // pass in isStudyMode as a state dependency 
-=======
   const navigate = useNavigate();
     
   useEffect(() => {
@@ -43,11 +34,10 @@ function App(props) {
       }
   }, []);
 
-  useEffect(() => {
-    props.getAllFlashcards(); //async issue, need async await
-    setFlashcards(props.flashcards.flashcards);
-  }, []);
->>>>>>> John/frontEnd
+  // useEffect(() => {
+  //   props.getAllFlashcards(); //async issue, need async await
+  //   setFlashcards(props.flashcards.flashcards);
+  // }, []);
 
   // const flashcardDeck = props.flashcards.flashcards.map(el => {
   //   return <h1>{el.question}</h1>

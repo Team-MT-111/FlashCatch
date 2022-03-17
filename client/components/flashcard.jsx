@@ -7,6 +7,8 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 import { connect } from 'react-redux';
 import { fetchAddPokedollars } from '../reducers/userReducer.js';
 
+import '../styles/flashcard.scss';
+
  
 // upon reviewed, send post request (thunk function) to backend that updates pokedollar balance 
 // mapDispatchToProps
@@ -49,7 +51,7 @@ function Flashcard(props) {
 
   if (isQuestion) { 
     return (
-      <Card sx={{ maxWidth: 345 }}>
+      <Card sx={{ maxWidth: 345 }} id='flashcards'>
         <CardActionArea onClick={handleClick}>
           <CardContent>
             <Typography gutterBottom variant="h7" component="div">

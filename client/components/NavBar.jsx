@@ -6,7 +6,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import MenuListComposition from './menu';
 
-
+import '../styles/NavBar.scss'
 
 
 export default function NavBar(props){
@@ -16,10 +16,10 @@ export default function NavBar(props){
     }
     return (
         <Box sx={{ flexGrow: 1 }}>
-          <AppBar position="static">
+          <AppBar position="static" id="navBar">
             <Toolbar>
               <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                Pokemon Training Card Game / HM05 Cards / Gacha Catch'em All! 
+                Gacha Catch'em All! 
               </Typography>
             
           <MenuListComposition/>

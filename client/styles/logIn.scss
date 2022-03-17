@@ -16,6 +16,15 @@
         align-items: center;
         background-color: red;
     }
+    #loginTitleText {
+        color: yellow;
+        text-shadow: -2px -2px 0 blue, 2px -2px 0 blue, -2px 2px 0 blue, 2px 2px 0 blue;
+
+    }
+    #linkToSignUpText {
+        color: yellow;
+        text-shadow: -0.5px -0.5px 0 blue, 0.5px -0.5px 0 blue, -0.5px 0.5px 0 blue, 0.5px 0.5px 0 blue;
+    }
 }
 
 
