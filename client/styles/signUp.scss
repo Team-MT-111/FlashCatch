@@ -1,0 +1,31 @@
+#signUp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    #inputs {
+        width: 25%;
+        margin-top: 50px;
+        display: flex;
+        flex-direction:column;
+        justify-content: center;
+    }
+    #signUpBtn {
+        margin-left: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: red;
+    }
+    .link {
+        margin-right: 50px;
+    }
+    #signUpTitleText {
+        color: yellow;
+        text-shadow: -2px -2px 0 blue, 2px -2px 0 blue, -2px 2px 0 blue, 2px 2px 0 blue;
+
+    }
+    #linkToLoginText {
+        color: yellow;
+        text-shadow: -0.5px -0.5px 0 blue, 0.5px -0.5px 0 blue, -0.5px 0.5px 0 blue, 0.5px 0.5px 0 blue;
+    }
+}
