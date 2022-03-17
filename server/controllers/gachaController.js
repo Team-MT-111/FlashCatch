@@ -6,8 +6,17 @@ const pokemonApi = 'https://pokeapi.co/api/v2/pokemon?limit=898';
 
 let pokemonCache = null; 
 
-function rollRandomPokemon(allPokemons) {
+function rollRandomPokemon(allPokemons, pokemons) {
   const id = Math.floor(Math.random() * allPokemons.length + 1);
+  let notChecked = true;
+  while(notChecked) {
+    notChecked = false;
+    for(let i = 0; i < pokemons.length; i++) {
+      if(pokemons.id === id) {
+        notChecked = true;
+      }
+    }
+  }
   const pokemon = {
     name: allPokemons[id - 1].name,
     id: id,
@@ -17,12 +26,13 @@ function rollRandomPokemon(allPokemons) {
 }
 
 gacha.rollOnce = async (req, res, next) => {
-  const {id} = req.body;
-  const pokemons = JSON.parse(req.body.pokemons);
+  const {id} = req.cookies;
+  const pokemons = req.body.pokemons;
   if(!pokemonCache) pokemonCache = await axios.get(pokemonApi);
-  const reward = rollRandomPokemon(pokemonCache.data.results);
-  res.locals = reward;
+  const reward = rollRandomPokemon(pokemonCache.data.results, pokemons);
+  res.locals.pokemons = reward;
   pokemons.push(reward);
+  pokemons.sort((a, b) => a.id - b.id)
   const queryString = 
   `
   SELECT pokedex FROM users

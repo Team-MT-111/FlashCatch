@@ -37,8 +37,10 @@ flashcards.getMyFlashcards = (req, res, next) => {
   SELECT * FROM flashcards
   WHERE $1 = flashcards.user_id
   `;
+
   pool.query(queryString, [userId])
     .then((result) => {
+      // console.log('result:', result)
       res.locals = result.rows;
       return next();
     })
