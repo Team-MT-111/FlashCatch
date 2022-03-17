@@ -38,7 +38,7 @@ const handleClick = (e) => {
     return (
     <div id="logIn">
     <Typography variant="h2" id="loginTitleText">
-      Login to Contiue the Quest to Catch Them All
+      Login to Continue the Quest to Catch Them All
     </Typography>
       <div id="inputs">
         <TextField 
